@@ -1,5 +1,6 @@
 exports.middlewareGlobal = (req, res, next) => {
-    res.locals.variavelLocal = 'Valor da variavel'
+    res.locals.errors = req.flash('errors')
+    res.locals.success = req.flash('success')
     next()
 }
 
@@ -7,7 +8,7 @@ exports.checkCsfrError = (error, req, res, nex) => {
     if(error){
         return res.render('404')
     }
-
+    
     next()
 }
 
