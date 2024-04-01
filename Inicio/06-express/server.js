@@ -3,11 +3,17 @@ const app = express()
 const PORT = 3000
 
 app.get('/', (req, res)=>{
-    res.send('Hello World');
+    res.send(`
+        <form action="/" method="POST">
+            Nome: <input type="text" name="name">
+            <button>ENVIAR</button>
+        </form>
+    `
+    )
 })
 
-app.get('/contato', (req, res)=>{
-    res.send('Obrigado por entrar em contato com a gente')
+app.post('/', (req, res)=>{
+    res.send('Recebi o formulario')
 })
 
 app.listen(PORT, ()=>{
